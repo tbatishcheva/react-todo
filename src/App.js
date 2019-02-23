@@ -5,7 +5,7 @@ import TodoList from './TodoList';
 import TodoItems from './TodoItems';
 
 class App extends Component {
-  inputElement= React.createRef();
+  // inputElement= React.createRef();
 
   constructor() {
     super();
@@ -20,21 +20,18 @@ class App extends Component {
     const itemText = e.target.value;
     const currentItem = { text: itemText, key: Date.now() };
     this.setState({ currentItem });
-    // console.log('Hello input');
   }
 
   addItem = (e) => {
     e.preventDefault();
     const newItem = this.state.currentItem;
     if (newItem.text !== '') {
-      // console.log(newItem);
       const items = [...this.state.items, newItem];
       this.setState({
         items,
         currentItem: { text: '', key: '' },
       });
     }
-    // console.log('Hello Add Item');
   };
 
   deleteItem = (key) => {
@@ -49,7 +46,7 @@ class App extends Component {
       <div className="App">
         <TodoList
           addItem={this.addItem}
-          inputElement={this.inputElement}
+          // inputElement={this.inputElement}
           handleInput={this.handleInput}
           currentItem={this.state.currentItem}
         />
